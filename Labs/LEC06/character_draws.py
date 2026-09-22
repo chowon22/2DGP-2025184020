@@ -1,3 +1,3 @@
 # 실습 과제 진행
-while True:
+while 1:
     pass

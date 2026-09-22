@@ -8,6 +8,9 @@ character = load_image("character.png")
 
 def MoveCircle():
     print("circle")
+    clear_canvas()
+    character.draw(400,300)
+    update_canvas()
     pass
 
 def MoveRectangle():

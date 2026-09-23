@@ -7,7 +7,7 @@ open_canvas(800,600)
 character = load_image("character.png")
 
 def MoveCircle():
-    print("circle")
+    print("Circle")
     
     radius = 100
 
@@ -17,8 +17,6 @@ def MoveCircle():
         clear_canvas()
         character.draw(x,y)
         update_canvas()
-
-    pass
 
 def MoveRectangle():
     print("Rectangle")

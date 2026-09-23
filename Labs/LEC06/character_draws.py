@@ -14,10 +14,10 @@ def MoveCircle():
     for angle in range(360):
         x = radius * sin(radians(angle)) + 400
         y = radius * cos(radians(angle)) + 300
+        clear_canvas()
+        character.draw(x,y)
+        update_canvas()
 
-    clear_canvas()
-    character.draw(400,300)
-    update_canvas()
     pass
 
 def MoveRectangle():

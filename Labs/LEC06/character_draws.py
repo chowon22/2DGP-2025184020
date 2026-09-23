@@ -17,6 +17,7 @@ def MoveCircle():
         clear_canvas()
         character.draw(x,y)
         update_canvas()
+        delay(0.01)
 
 def MoveRectangle():
     print("Rectangle")
@@ -36,7 +37,7 @@ def MoveRectangle():
             if x >= 500 or x <= 300 or y >= 300 or y <= 100:
                 break
 
-            pass
+            delay(0.01)
     pass
 
 def MoveTriangle():

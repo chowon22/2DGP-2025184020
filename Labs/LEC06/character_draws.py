@@ -8,6 +8,10 @@ character = load_image("character.png")
 
 def MoveCircle():
     print("circle")
+    
+    radius = 100
+    anlge = 0
+
     clear_canvas()
     character.draw(400,300)
     update_canvas()

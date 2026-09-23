@@ -22,7 +22,8 @@ def MoveRectangle():
     print("Rectangle")
 
     d = [(1, 0), (0, -1), (-1, 0), (0, 1)]
-
+    x = 400
+    y = 200
     for i in range(5):
         while 1:
             pass

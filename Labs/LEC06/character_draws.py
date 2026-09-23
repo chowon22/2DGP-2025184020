@@ -28,6 +28,10 @@ def MoveRectangle():
         while 1:
             x += d[i][0]
             y += d[i][1]
+
+            clear_canvas()
+            character.draw(x,y)
+            update_canvas()
             pass
     pass
 

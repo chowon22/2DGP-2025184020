@@ -26,12 +26,16 @@ def MoveRectangle():
     y = 200
     for i in range(5):
         while 1:
-            x += d[i][0]
-            y += d[i][1]
+            x += d[i % 4][0]
+            y += d[i % 4][1]
 
             clear_canvas()
             character.draw(x,y)
             update_canvas()
+
+            if x >= 500 or x <= 300 or y >= 300 or y <= 100:
+                break
+
             pass
     pass
 

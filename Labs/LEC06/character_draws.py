@@ -40,11 +40,11 @@ def MoveRectangle():
             elif x < 300:
                 x = 300
                 break
-            elif y > 300:
-                y = 300
+            elif y > 400:
+                y = 400
                 break
-            elif y < 100:
-                y = 100
+            elif y < 200:
+                y = 200
                 break
 
             delay(0.01)

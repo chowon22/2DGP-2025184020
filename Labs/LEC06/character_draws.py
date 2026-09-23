@@ -18,6 +18,7 @@ def MoveCircle():
         character.draw(x,y)
         update_canvas()
         delay(0.01)
+        get_events()
 
 def MoveRectangle():
     print("Rectangle")
@@ -46,8 +47,12 @@ def MoveRectangle():
             elif y < 200:
                 y = 200
                 break
+            elif i == 4 and x >= 400:
+                x = 4
+                break
 
             delay(0.01)
+        get_events()
     pass
 
 def MoveTriangle():

@@ -23,6 +23,9 @@ def MoveRectangle():
 
     d = [(1, 0), (0, -1), (-1, 0), (0, 1)]
 
+    for i in range(5):
+        pass
+    
     pass
 
 def MoveTriangle():

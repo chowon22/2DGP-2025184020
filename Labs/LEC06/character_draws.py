@@ -1,5 +1,5 @@
 # 실습 과제 진행
-
+from math import *
 from pico2d import *
 
 open_canvas(800,600)
@@ -10,7 +10,9 @@ def MoveCircle():
     print("circle")
     
     radius = 100
-    anlge = 0
+
+    for anlge in range(360):
+        pass
 
     clear_canvas()
     character.draw(400,300)

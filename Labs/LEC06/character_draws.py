@@ -26,6 +26,8 @@ def MoveRectangle():
     y = 200
     for i in range(5):
         while 1:
+            x += d[i][0]
+            y += d[i][1]
             pass
     pass
 

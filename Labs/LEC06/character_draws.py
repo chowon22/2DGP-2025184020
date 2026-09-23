@@ -20,6 +20,9 @@ def MoveCircle():
 
 def MoveRectangle():
     print("Rectangle")
+
+    d = [(1, 0), (0, -1), (-1, 0), (0, 1)]
+
     pass
 
 def MoveTriangle():

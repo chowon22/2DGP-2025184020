@@ -24,7 +24,7 @@ def MoveRectangle():
 
     d = [(1, 0), (0, -1), (-1, 0), (0, 1)]
     x = 400
-    y = 200
+    y = 400
     for i in range(5):
         while 1:
             x += d[i % 4][0]
@@ -34,7 +34,17 @@ def MoveRectangle():
             character.draw(x,y)
             update_canvas()
 
-            if x >= 500 or x <= 300 or y >= 300 or y <= 100:
+            if x > 500:
+                x = 500
+                break
+            elif x < 300:
+                x = 300
+                break
+            elif y > 300:
+                y = 300
+                break
+            elif y < 100:
+                y = 100
                 break
 
             delay(0.01)

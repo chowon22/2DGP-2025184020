@@ -57,6 +57,10 @@ def MoveRectangle():
 
 def MoveTriangle():
     print("Triangle")
+
+    points = [(500, 300), (300, 300), (400, 400)]
+    
+
     pass
 
 while 1:

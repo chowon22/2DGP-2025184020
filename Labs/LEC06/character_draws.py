@@ -9,6 +9,9 @@ character = load_image("character.png")
 x = 400
 y = 400
 
+def Draw():
+    pass
+
 def MoveCircle(x, y):
     print("Circle")
     

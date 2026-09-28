@@ -9,11 +9,13 @@ character = load_image("character.png")
 x = 400
 y = 400
 
+DELAY_TIME= 0.01
+
 def Draw(x, y):
     clear_canvas()
     character.draw(x,y)
     update_canvas()
-    delay(0.01)
+    delay(DELAY_TIME)
     get_events()
 
 def MoveCircle(x, y):

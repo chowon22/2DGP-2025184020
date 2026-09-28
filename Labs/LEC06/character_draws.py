@@ -60,8 +60,10 @@ def MoveTriangle():
 
     points = [(500, 300), (300, 300), (400, 400)]
     
-
-    pass
+    for i in range(3):
+        for t in range(100):
+            pass
+    
 
 while 1:
     MoveCircle()

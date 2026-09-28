@@ -24,7 +24,7 @@ def MoveCircle(x, y):
     for angle in range(360):
         x = radius * sin(radians(angle)) + 400
         y = radius * cos(radians(angle)) + 300
-        
+    Draw(x, y)
 
 def MoveRectangle(x, y):
     print("Rectangle")
@@ -35,9 +35,7 @@ def MoveRectangle(x, y):
             x += d[i % 4][0]
             y += d[i % 4][1]
 
-            clear_canvas()
-            character.draw(x,y)
-            update_canvas()
+            Draw(x, y)
 
             if x > 500:
                 x = 500
@@ -55,8 +53,6 @@ def MoveRectangle(x, y):
                 x = 4
                 break
 
-            delay(0.01)
-        get_events()
     pass
 
 def MoveTriangle(x, y):
@@ -68,11 +64,8 @@ def MoveTriangle(x, y):
         for t in range(100):
             x = points[i][0] + (points[i + 1][0] - points[i][0]) * t / 100
             y = points[i][1] + (points[i + 1][1] - points[i][1]) * t / 100
-            clear_canvas()
-            character.draw(x,y)
-            update_canvas()
-            delay(0.01)
-            get_events()
+            
+            Draw(x, y)
             
     
 

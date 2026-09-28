@@ -62,6 +62,8 @@ def MoveTriangle():
     
     for i in range(3):
         for t in range(100):
+            x = points[i][0] + (points[i + 1][0] - points[i][0]) * t / 100
+            y = points[i][1] + (points[i + 1][1] - points[i][1]) * t / 100
             clear_canvas()
             character.draw(x,y)
             update_canvas()

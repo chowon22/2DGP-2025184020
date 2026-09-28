@@ -9,8 +9,12 @@ character = load_image("character.png")
 x = 400
 y = 400
 
-def Draw():
-    pass
+def Draw(x, y):
+    clear_canvas()
+    character.draw(x,y)
+    update_canvas()
+    delay(0.01)
+    get_events()
 
 def MoveCircle(x, y):
     print("Circle")
@@ -20,11 +24,7 @@ def MoveCircle(x, y):
     for angle in range(360):
         x = radius * sin(radians(angle)) + 400
         y = radius * cos(radians(angle)) + 300
-        clear_canvas()
-        character.draw(x,y)
-        update_canvas()
-        delay(0.01)
-        get_events()
+        
 
 def MoveRectangle(x, y):
     print("Rectangle")

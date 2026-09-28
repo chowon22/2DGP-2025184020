@@ -6,7 +6,10 @@ open_canvas(800,600)
 
 character = load_image("character.png")
 
-def MoveCircle():
+x = 400
+y = 400
+
+def MoveCircle(x, y):
     print("Circle")
     
     radius = 100
@@ -20,12 +23,10 @@ def MoveCircle():
         delay(0.01)
         get_events()
 
-def MoveRectangle():
+def MoveRectangle(x, y):
     print("Rectangle")
 
     d = [(1, 0), (0, -1), (-1, 0), (0, 1)]
-    x = 400
-    y = 400
     for i in range(5):
         while 1:
             x += d[i % 4][0]
@@ -55,7 +56,7 @@ def MoveRectangle():
         get_events()
     pass
 
-def MoveTriangle():
+def MoveTriangle(x, y):
     print("Triangle")
 
     points = [(400, 400), (500, 300), (300, 300), (400, 400)]
@@ -73,7 +74,7 @@ def MoveTriangle():
     
 
 while 1:
-    MoveCircle()
-    MoveRectangle()
-    MoveTriangle()
+    MoveCircle(x, y)
+    MoveRectangle(x, y)
+    MoveTriangle(x, y)
     pass

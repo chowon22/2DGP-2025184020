@@ -58,7 +58,7 @@ def MoveRectangle():
 def MoveTriangle():
     print("Triangle")
 
-    points = [(400, 400), (500, 100), (300, 100), (400, 400)]
+    points = [(400, 400), (500, 300), (300, 300), (400, 400)]
     
     for i in range(3):
         for t in range(100):

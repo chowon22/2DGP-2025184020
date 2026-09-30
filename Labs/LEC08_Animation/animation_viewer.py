@@ -35,6 +35,7 @@ character = load_image('animation_sheet_knight.png')
 
 anim_index = 0
 frame = 0
+repeat = 0
 
 while True:
     get_events()
@@ -53,6 +54,8 @@ while True:
 
     update_canvas()
     frame = (frame + 1) % len(frames)
+    if frame == 0:  # 마지막 프레임까지 재생하고 처음으로 돌아오면 한 사이클 완료
+        repeat += 1
     delay(FRAME_DELAY)
 
 close_canvas()

@@ -28,6 +28,7 @@ FRAME_DELAY = 0.08
 SCALE = 2.5
 FOOT_Y = 150  # 캐릭터 발이 놓일 화면 y좌표
 REPEAT_COUNT = 5  # 애니메이션마다 반복 재생할 횟수
+PAUSE_TIME = 1.0  # 애니메이션 전환 시 정지 시간(초)
 
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
@@ -60,7 +61,7 @@ while True:
         if repeat == REPEAT_COUNT:  # 정해진 횟수만큼 반복하면 다음 애니메이션으로 전환
             anim_index = (anim_index + 1) % len(ANIMATIONS)  # 마지막 애니메이션 다음엔 처음으로
             repeat = 0
-            delay(1.0)  # 다음 애니메이션으로 넘어가기 전 1초 정지
+            delay(PAUSE_TIME)  # 다음 애니메이션으로 넘어가기 전 정지
     delay(FRAME_DELAY)
 
 close_canvas()

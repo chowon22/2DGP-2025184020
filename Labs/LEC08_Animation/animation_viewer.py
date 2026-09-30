@@ -29,16 +29,19 @@ open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 grass = load_image('grass.png')
 character = load_image('animation_sheet_knight.png')
 
+frame = 0
+
 while True:
     get_events()
     clear_canvas()
     grass.draw(400, 30)
 
     name, frames = ANIMATIONS[0]
-    left, bottom, width, height = frames[0]
+    left, bottom, width, height = frames[frame]
     character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
 
     update_canvas()
+    frame += 1
     delay(0.1)
 
 close_canvas()

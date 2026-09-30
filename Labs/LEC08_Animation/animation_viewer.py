@@ -33,6 +33,7 @@ open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 grass = load_image('grass.png')
 character = load_image('animation_sheet_knight.png')
 
+anim_index = 0
 frame = 0
 
 while True:
@@ -40,7 +41,7 @@ while True:
     clear_canvas()
     grass.draw(400, 30)
 
-    name, frames = ANIMATIONS[0]
+    name, frames = ANIMATIONS[anim_index]
     left, bottom, width, height, anchor_x = frames[frame]
     # 프레임마다 높이가 달라도 발 위치가 고정되도록 중심 y좌표 보정
     base = min(f[1] for f in frames)

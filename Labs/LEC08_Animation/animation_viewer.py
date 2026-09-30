@@ -57,6 +57,9 @@ while True:
     frame = (frame + 1) % len(frames)
     if frame == 0:  # 마지막 프레임까지 재생하고 처음으로 돌아오면 한 사이클 완료
         repeat += 1
+        if repeat == REPEAT_COUNT:  # 정해진 횟수만큼 반복하면 다음 애니메이션으로 전환
+            anim_index += 1
+            repeat = 0
     delay(FRAME_DELAY)
 
 close_canvas()

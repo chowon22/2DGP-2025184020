@@ -25,7 +25,7 @@ ANIMATIONS = [
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 FRAME_DELAY = 0.08
-SCALE = 2
+SCALE = 2.5
 FOOT_Y = 150  # 캐릭터 발이 놓일 화면 y좌표
 REPEAT_COUNT = 5  # 애니메이션마다 반복 재생할 횟수
 

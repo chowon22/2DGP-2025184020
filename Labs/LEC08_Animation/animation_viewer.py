@@ -41,7 +41,7 @@ while True:
     character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
 
     update_canvas()
-    frame += 1
+    frame = (frame + 1) % len(frames)
     delay(0.1)
 
 close_canvas()

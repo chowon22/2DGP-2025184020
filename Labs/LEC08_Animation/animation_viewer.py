@@ -34,6 +34,10 @@ while True:
     clear_canvas()
     grass.draw(400, 30)
 
+    name, frames = ANIMATIONS[0]
+    left, bottom, width, height = frames[0]
+    character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+
     update_canvas()
     delay(0.1)
 

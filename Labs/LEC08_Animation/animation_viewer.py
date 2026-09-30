@@ -60,6 +60,7 @@ while True:
         if repeat == REPEAT_COUNT:  # 정해진 횟수만큼 반복하면 다음 애니메이션으로 전환
             anim_index = (anim_index + 1) % len(ANIMATIONS)  # 마지막 애니메이션 다음엔 처음으로
             repeat = 0
+            delay(1.0)  # 다음 애니메이션으로 넘어가기 전 1초 정지
     delay(FRAME_DELAY)
 
 close_canvas()

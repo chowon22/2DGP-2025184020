@@ -22,7 +22,9 @@ ANIMATIONS = [
     ]),
 ]
 
-open_canvas()
+CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
+
+open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
 grass = load_image('grass.png')
 character = load_image('animation_sheet_knight.png')

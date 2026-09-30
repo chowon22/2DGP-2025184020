@@ -4,7 +4,7 @@ from pico2d import *
 # anchor_x: 프레임 왼쪽 끝에서 두 발 사이 중점까지의 거리 (x 보정용)
 ANIMATIONS = [
     ('idle', [
-        (89, 847, 150, 126, 59), (317, 847, 155, 124, 66), (545, 847, 162, 126, 66), (783, 847, 157, 121, 67),
+        (89, 847, 150, 126, 60), (317, 847, 155, 124, 66), (545, 847, 162, 126, 69), (783, 847, 157, 121, 67),
     ]),
     ('run', [
         (73, 654, 183, 127, 72), (323, 654, 176, 127, 64), (567, 654, 172, 127, 63),
@@ -47,9 +47,9 @@ while True:
     left, bottom, width, height, anchor_x = frames[frame]
     # 프레임마다 높이가 달라도 발 위치가 고정되도록 중심 y좌표 보정
     base = min(f[1] for f in frames)
-    y = FOOT_Y + (bottom - base) * SCALE + height * SCALE // 2
+    y = FOOT_Y + (bottom - base) * SCALE + height * SCALE / 2
     # 프레임마다 캐릭터 위치가 달라도 발이 화면 중앙에 오도록 중심 x좌표 보정
-    x = CANVAS_WIDTH // 2 + (width // 2 - anchor_x) * SCALE
+    x = CANVAS_WIDTH // 2 + (width / 2 - anchor_x) * SCALE
     character.clip_draw(left, bottom, width, height, x, y,
                         width * SCALE, height * SCALE)
 

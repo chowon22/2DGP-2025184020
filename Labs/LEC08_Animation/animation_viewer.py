@@ -30,6 +30,7 @@ character = load_image('animation_sheet_knight.png')
 while True:
     get_events()
     clear_canvas()
+    grass.draw(400, 30)
 
     update_canvas()
     delay(0.1)

@@ -25,6 +25,7 @@ ANIMATIONS = [
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 FRAME_DELAY = 0.1
 SCALE = 2
+FOOT_Y = 150  # 캐릭터 발이 놓일 화면 y좌표
 
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
@@ -40,7 +41,10 @@ while True:
 
     name, frames = ANIMATIONS[0]
     left, bottom, width, height = frames[frame]
-    character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2,
+    # 프레임마다 높이가 달라도 발 위치가 고정되도록 중심 y좌표 보정
+    base = min(f[1] for f in frames)
+    y = FOOT_Y + (bottom - base) * SCALE + height * SCALE // 2
+    character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, y,
                         width * SCALE, height * SCALE)
 
     update_canvas()

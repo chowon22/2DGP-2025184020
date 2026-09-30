@@ -23,6 +23,7 @@ ANIMATIONS = [
 ]
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
+FRAME_DELAY = 0.1
 
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
@@ -42,7 +43,7 @@ while True:
 
     update_canvas()
     frame = (frame + 1) % len(frames)
-    delay(0.1)
+    delay(FRAME_DELAY)
 
 close_canvas()
 

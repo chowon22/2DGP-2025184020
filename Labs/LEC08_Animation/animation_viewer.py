@@ -40,7 +40,8 @@ while True:
 
     name, frames = ANIMATIONS[0]
     left, bottom, width, height = frames[frame]
-    character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+    character.clip_draw(left, bottom, width, height, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2,
+                        width * SCALE, height * SCALE)
 
     update_canvas()
     frame = (frame + 1) % len(frames)

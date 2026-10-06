@@ -76,12 +76,10 @@ while running:
             repeat += 1
             if repeat < REPEAT_COUNT:
                 frame = 0
-            elif action < len(actions) - 1:
-                action += 1  # 5회 끝: 다음 동작으로
+            else:
+                action = (action + 1) % len(actions)  # 5회 끝: 다음 동작, 마지막 다음은 처음으로
                 frame = 0
                 repeat = 0
-            else:
-                frame -= 1  # 마지막 동작까지 끝나면 멈춤
     delay(FRAME_TIME)
 
 close_canvas()

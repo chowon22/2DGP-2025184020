@@ -18,7 +18,7 @@ sonic = load_image('sonic-sprite.png')
 running = True
 while running:
     clear_canvas()
-    sonic.draw(400, 300)
+    sonic.clip_draw(1, 447, 29, 39, 400, 300)
     update_canvas()
     handle_events()
     delay(0.1)

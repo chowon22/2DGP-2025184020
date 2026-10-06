@@ -50,6 +50,20 @@ actions = [
     [(6, 56, 34, 40), (49, 56, 34, 43), (96, 59, 23, 39), (125, 59, 23, 39)],
 ]
 
+# 동작별 이동 속도 (화면 기준 px/프레임, actions와 같은 순서). 0이면 제자리
+speeds = [
+    6,   # 1. 걷기 시작 / 가속
+    20,  # 2. 달리기
+    0,   # 3. 브레이크 / 회전 동작
+    0,   # 4. 스핀
+    25,  # 5. 볼 구르기
+    30,  # 6. 빠른 달리기
+    40,  # 7. 슈퍼 필아웃
+    0,   # 8. 밀기 / 기타 자세
+    10,  # 9. 걷기
+    0,   # 10. 놀람 / 피격
+]
+
 
 def handle_events():
     global running
@@ -85,6 +99,7 @@ while running:
             repeat = 0
             x = CENTER_X  # 새 동작은 중앙에서 시작
     else:
+        x += speeds[action]
         frame += 1
         if frame == len(actions[action]):
             repeat += 1

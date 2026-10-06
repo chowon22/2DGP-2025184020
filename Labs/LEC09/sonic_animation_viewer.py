@@ -1,5 +1,7 @@
 from pico2d import *
 
+SCALE = 8
+
 
 def handle_events():
     global running
@@ -18,7 +20,7 @@ sonic = load_image('sonic-sprite.png')
 running = True
 while running:
     clear_canvas()
-    sonic.clip_draw(1, 447, 29, 39, 400, 300)
+    sonic.clip_draw(1, 447, 29, 39, 400, 300, 29 * SCALE, 39 * SCALE)
     update_canvas()
     handle_events()
     delay(0.1)

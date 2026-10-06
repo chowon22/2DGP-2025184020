@@ -1,5 +1,6 @@
 # 소닉 애니메이션 뷰어
 # sonic-sprite.png의 동작을 하나씩 5회 재생하고 1초 쉰 뒤 다음 동작으로, 끝나면 처음부터 무한 반복.
+# 걷기·달리기·구르기 동작은 재생하면서 오른쪽으로 이동하고, 화면을 벗어나면 왼쪽에서 다시 들어온다.
 # ESC 또는 창 닫기로 종료.
 
 from pico2d import *
@@ -11,6 +12,7 @@ REPEAT_COUNT = 5  # 동작별 반복 횟수
 PAUSE_TIME = 1.0  # 동작 사이 쉬는 시간(초)
 CENTER_X = CANVAS_WIDTH // 2
 GROUND_Y = 100  # 발을 맞추는 바닥선 높이
+WRAP_MARGIN = 200  # 화면 밖으로 이만큼 나가면 반대쪽에서 다시 등장 (가장 넓은 프레임 절반보다 크게)
 
 # 동작별 프레임 좌표 (left, bottom, width, height)
 # 시트가 균일한 격자가 아니라서 프레임마다 좌표를 따로 둔다.
@@ -100,6 +102,8 @@ while running:
             x = CENTER_X  # 새 동작은 중앙에서 시작
     else:
         x += speeds[action]
+        if x > CANVAS_WIDTH + WRAP_MARGIN:
+            x = -WRAP_MARGIN  # 오른쪽 밖으로 나가면 왼쪽 밖에서 다시 들어오기
         frame += 1
         if frame == len(actions[action]):
             repeat += 1

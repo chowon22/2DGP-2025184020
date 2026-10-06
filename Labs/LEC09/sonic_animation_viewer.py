@@ -70,10 +70,11 @@ action = 0  # 지금 재생 중인 동작 (0부터)
 frame = 0  # 동작 안의 프레임 번호
 repeat = 0  # 지금 동작을 끝까지 재생한 횟수
 pause = 0  # 남은 쉬는 프레임 수 (쉬는 동안에도 루프를 돌아 이벤트를 처리)
+x = CENTER_X  # 캐릭터의 가로 위치
 while running:
     clear_canvas()
     left, bottom, w, h = actions[action][frame]
-    sonic.clip_draw(left, bottom, w, h, CENTER_X, GROUND_Y + h * SCALE // 2, w * SCALE, h * SCALE)
+    sonic.clip_draw(left, bottom, w, h, x, GROUND_Y + h * SCALE // 2, w * SCALE, h * SCALE)
     update_canvas()
     handle_events()
     if pause > 0:
@@ -82,6 +83,7 @@ while running:
             action = (action + 1) % len(actions)  # 다음 동작, 마지막 다음은 처음으로
             frame = 0
             repeat = 0
+            x = CENTER_X  # 새 동작은 중앙에서 시작
     else:
         frame += 1
         if frame == len(actions[action]):

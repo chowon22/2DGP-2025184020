@@ -65,23 +65,28 @@ sonic = load_image('sonic-sprite.png')
 running = True
 frame = 0
 repeat = 0
+pause = 0  # 남은 쉬는 프레임 수 (쉬는 동안에도 루프를 돌아 이벤트를 처리)
 while running:
     clear_canvas()
     left, bottom, w, h = actions[action][frame]
     sonic.clip_draw(left, bottom, w, h, CENTER_X, GROUND_Y + h * SCALE // 2, w * SCALE, h * SCALE)
     update_canvas()
     handle_events()
-    if repeat < REPEAT_COUNT:
+    if pause > 0:
+        pause -= 1
+        if pause == 0:
+            action = (action + 1) % len(actions)  # 다음 동작, 마지막 다음은 처음으로
+            frame = 0
+            repeat = 0
+    else:
         frame += 1
         if frame == len(actions[action]):
             repeat += 1
             if repeat < REPEAT_COUNT:
                 frame = 0
             else:
-                delay(PAUSE_TIME)  # 마지막 프레임이 화면에 남은 채로 쉬기
-                action = (action + 1) % len(actions)  # 5회 끝: 다음 동작, 마지막 다음은 처음으로
-                frame = 0
-                repeat = 0
+                frame -= 1  # 5회 끝: 마지막 프레임이 화면에 남은 채로 쉬기
+                pause = round(PAUSE_TIME / FRAME_TIME)
     delay(FRAME_TIME)
 
 close_canvas()

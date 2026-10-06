@@ -2,6 +2,8 @@ from pico2d import *
 
 SCALE = 8
 FRAME_TIME = 0.1  # 프레임 하나를 보여 주는 시간(초)
+CENTER_X = 400
+GROUND_Y = 100  # 발을 맞추는 바닥선 높이
 
 # 1번 동작: 걷기 시작 / 가속 (left, bottom, width, height)
 action1 = [
@@ -30,7 +32,7 @@ frame = 0
 while running:
     clear_canvas()
     left, bottom, w, h = action1[frame]
-    sonic.clip_draw(left, bottom, w, h, 400, 300, w * SCALE, h * SCALE)
+    sonic.clip_draw(left, bottom, w, h, CENTER_X, GROUND_Y + h * SCALE // 2, w * SCALE, h * SCALE)
     update_canvas()
     handle_events()
     frame = (frame + 1) % len(action1)

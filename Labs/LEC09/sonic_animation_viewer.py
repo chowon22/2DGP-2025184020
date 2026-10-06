@@ -3,6 +3,7 @@ from pico2d import *
 SCALE = 8
 FRAME_TIME = 0.1  # 프레임 하나를 보여 주는 시간(초)
 REPEAT_COUNT = 5  # 동작별 반복 횟수
+PAUSE_TIME = 1.0  # 동작 사이 쉬는 시간(초)
 CENTER_X = 400
 GROUND_Y = 100  # 발을 맞추는 바닥선 높이
 
@@ -77,6 +78,7 @@ while running:
             if repeat < REPEAT_COUNT:
                 frame = 0
             else:
+                delay(PAUSE_TIME)  # 마지막 프레임이 화면에 남은 채로 쉬기
                 action = (action + 1) % len(actions)  # 5회 끝: 다음 동작, 마지막 다음은 처음으로
                 frame = 0
                 repeat = 0

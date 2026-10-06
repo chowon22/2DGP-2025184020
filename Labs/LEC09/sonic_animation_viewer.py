@@ -1,6 +1,7 @@
 from pico2d import *
 
 SCALE = 8
+FRAME_TIME = 0.1  # 프레임 하나를 보여 주는 시간(초)
 
 # 1번 동작: 걷기 시작 / 가속 (left, bottom, width, height)
 action1 = [
@@ -33,6 +34,6 @@ while running:
     update_canvas()
     handle_events()
     frame = (frame + 1) % len(action1)
-    delay(0.1)
+    delay(FRAME_TIME)
 
 close_canvas()

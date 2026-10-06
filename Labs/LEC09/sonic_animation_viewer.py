@@ -1,10 +1,15 @@
+# 소닉 애니메이션 뷰어
+# sonic-sprite.png의 동작을 하나씩 5회 재생하고 1초 쉰 뒤 다음 동작으로, 끝나면 처음부터 무한 반복.
+# ESC 또는 창 닫기로 종료.
+
 from pico2d import *
 
-SCALE = 8
+CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
+SCALE = 8  # 확대 배율
 FRAME_TIME = 0.1  # 프레임 하나를 보여 주는 시간(초)
 REPEAT_COUNT = 5  # 동작별 반복 횟수
 PAUSE_TIME = 1.0  # 동작 사이 쉬는 시간(초)
-CENTER_X = 400
+CENTER_X = CANVAS_WIDTH // 2
 GROUND_Y = 100  # 발을 맞추는 바닥선 높이
 
 # 동작별 프레임 좌표 (left, bottom, width, height)
@@ -45,8 +50,6 @@ actions = [
     [(6, 56, 34, 40), (49, 56, 34, 43), (96, 59, 23, 39), (125, 59, 23, 39)],
 ]
 
-action = 0  # 재생할 동작 번호 (0부터)
-
 
 def handle_events():
     global running
@@ -58,13 +61,14 @@ def handle_events():
             running = False
 
 
-open_canvas(800, 600)
+open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 
 sonic = load_image('sonic-sprite.png')
 
 running = True
-frame = 0
-repeat = 0
+action = 0  # 지금 재생 중인 동작 (0부터)
+frame = 0  # 동작 안의 프레임 번호
+repeat = 0  # 지금 동작을 끝까지 재생한 횟수
 pause = 0  # 남은 쉬는 프레임 수 (쉬는 동안에도 루프를 돌아 이벤트를 처리)
 while running:
     clear_canvas()
